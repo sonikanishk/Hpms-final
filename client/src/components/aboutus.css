@@ -1,0 +1,75 @@
+.aboutus{
+    margin-top: 5px;
+    background-color:#49c0b2;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.piccon{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    height: 400px;
+    overflow: hidden;
+    text-align:center;
+}
+.pic{
+    background: url(../assets/aboutus1.png) no-repeat;
+    width: 1200px;
+    height: 400px;
+}
+
+.content{
+    padding-left: 6rem;
+    padding-right: 6rem;
+    margin: 0;
+}
+.ourstory{
+    color: #013974;
+    border-bottom: 5px solid #5dd4c7;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.message{
+    color: #013974;
+    border-bottom: 5px solid #5dd4c7;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.justify{
+    padding-top: 10px;
+    text-align: justify;
+}
+.borderr{
+    border-top: 2px solid #efefef; 
+}
+
+@media(max-width: 800px){
+    .content{
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin: 0;
+    }
+    .piccon{
+        display: none;
+    }
+    .pic{
+        display: none;
+    }
+}
+@media(max-width: 1200px){
+    .piccon{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 800px;
+        height: 250px;
+        overflow: hidden;
+        text-align:center;
+    }
+    .pic{
+        background: url(../assets/aboutus2.png) no-repeat;
+        width: 800px;
+        height: 250px;
+    }
+}

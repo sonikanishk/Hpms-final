@@ -1,0 +1,107 @@
+.content{
+    padding-left: 6rem;
+    padding-right: 6rem;
+    margin: 0;
+}
+.emergencyy{
+    margin-top: 5px;
+    background-color:#49c0b2;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.picconemer{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    height: 400px;
+    overflow: hidden;
+    text-align:center;
+}
+.picc{
+    background: url(../assets/emergency0.jpg) no-repeat;
+    width: 1200px;
+    height: 400px;
+}
+.airambcontainer{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    height: 600px;
+    overflow: hidden;
+    text-align:center;
+}
+.airamb{
+    background: url(../assets/airamb.jpg) no-repeat;
+    width: 1200px;
+    height: 600px;
+}
+.emergency247{
+    color: #013974;
+    border-bottom: 5px solid #5dd4c7;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.borderr{
+    border-top: 2px solid #efefef; 
+}
+.justify{
+    padding-top: 10px;
+    text-align: justify;
+}
+@media(max-width: 1200px){
+    .picconemer{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 776px;
+        height: 400px;
+        overflow: hidden;
+        text-align:center;
+    }
+    .picc{
+        background: url(../assets/emergency.jpg) no-repeat;
+        width: 800px;
+        height: 400px;
+    }
+    .airambcontainer{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 800px;
+        height: 400px;
+        overflow: hidden;
+        text-align:center;
+    }
+    .airamb{
+        background: url(../assets/airamb1.jpg) no-repeat;
+        width: 800px;
+        height: 400px;
+    }
+}
+@media(max-width: 800px){
+    .content{
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin: 0;
+    }
+    .picconemer{
+        display: none;
+    }
+    .picc{
+        display: none;
+    }
+    .airambcontainer{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px;
+        height: 200px;
+        overflow: hidden;
+        text-align:center;
+    }
+    .airamb{
+        background: url(../assets/airamb2.jpg) no-repeat;
+        width: 400px;
+        height: 200px;
+    }
+
+}

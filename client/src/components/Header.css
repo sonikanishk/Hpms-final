@@ -1,0 +1,143 @@
+.p1{
+    text-align: -webkit-center;
+}
+
+.header{
+    display:flex;
+}
+.logo{
+  background: url(../assets/logo.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 230px;
+  height: 115px;
+  background-position-x: right;
+}
+.checkbtn{
+  font-size: 35px;
+  color: #65bad4;
+  cursor: pointer;
+  display: none;
+}
+#check{
+  display: none;
+}
+.nav1{
+font-size: 10pt;
+}
+.link{
+text-align: -webkit-center;
+justify-content: center;
+align-items: center;
+font-weight: 500;
+color:#626161;
+text-decoration: none;
+padding: 0.5rem;
+}
+.link:hover{
+color:#121212;
+background:#8dd9f0;
+text-decoration: none;
+transition: 0.25s;
+}
+#mr-auto{
+justify-content: flex-end;
+
+}
+.emergency{
+text-align: center;
+justify-content: center;
+align-items: center;
+font-weight: 500;
+color:#FF6347;
+text-decoration: none;
+padding: 0.5rem;
+}
+.emergency:hover{
+color:#FFFFFF;
+background:#FF6347;
+text-decoration: none;
+transition: 0.25s;
+}
+.appointment{
+  background: url(../assets/calendar.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  background-position-x: right;
+}
+.doctor{
+  background: url(../assets/doctor.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  background-position-x: right;
+}
+.queries{
+  background: url(../assets/help-call.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  background-position-x: right;
+}
+.reports{
+  background: url(../assets/medical-report.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  background-position-x: right;
+}
+.donor{
+  background: url(../assets/donor.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  background-position-x: right;
+}
+.comp{
+  display: flex;
+}
+@media only screen and (max-width: 768px) {
+#mr-auto{
+    justify-content: center;
+}
+
+#mr-auto2{
+    justify-content: space-around;
+}
+.sizz{
+  font-size: 10pt;
+}
+.sizzz{
+  font-size: 10pt;
+}
+}
+
+@media only screen and (max-width: 600px){
+  #mr-auto2{
+    display: block;
+  }
+  .sizz{
+    display: flow-root;
+  }
+  .checkbtn{  
+    display: block;
+  }
+  .comp{
+    width: 100%;
+    display: none;
+    transition: 0.5s;
+  }
+  #check:checked ~ .comp{
+    left: 0;
+    display: block;
+    transition: 0.5s;
+  }
+  .link:hover{
+    color:#121212;
+    background:white;
+    text-decoration: none;
+    transition: 0.25s;
+    }
+ 
+}
+

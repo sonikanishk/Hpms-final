@@ -1,0 +1,77 @@
+.findadoc{
+    margin-top: 5px;
+    background-color:#49c0b2;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.contentf{
+    padding-left: 6rem;
+    padding-right: 6rem;
+    margin: 0;
+}
+.justify{
+    padding-top: 10px;
+    text-align: justify;
+}
+.borderr{
+    border-top: 2px solid #efefef; 
+}
+.picconemerp{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    height: 650px;
+    overflow: hidden;
+    text-align:center;
+}
+.picccc{
+    background: url(../assets/rep1.jpg) no-repeat;
+    width: 1200px;
+    height: 650px;
+}
+.report{
+    color: #013974;
+    border-bottom: 5px solid #5dd4c7;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+@media(max-width: 1200px){
+    .contentf{
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin: 0;
+    }
+    .picccc{
+        background: url(../assets/rep2.jpg) no-repeat;
+        width: 700px;
+        height: 379px;
+    }
+    .picconemerp{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 700px;
+        height: 379px;
+        overflow: hidden;
+        text-align:center;
+    }
+}
+@media(max-width: 700px){
+    .contentf{
+        margin: 0;
+    }
+    .picccc{
+        background: url(../assets/rep3.jpg) no-repeat;
+        width: 330px;
+        height: 175px;
+    }
+    .picconemerp{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 330px;
+        height: 175px;
+        overflow: hidden;
+        text-align:center;
+    }
+}

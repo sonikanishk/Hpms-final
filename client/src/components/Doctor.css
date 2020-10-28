@@ -1,0 +1,108 @@
+.findadoc{
+    margin-top: 5px;
+    background-color:#49c0b2;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.contentf{
+    padding-left: 6rem;
+    padding-right: 6rem;
+    margin: 0;
+}
+.justify{
+    padding-top: 10px;
+    text-align: justify;
+}
+.borderr{
+    border-top: 2px solid #efefef; 
+}
+.hheading{
+  color: #013974;
+  border-bottom: 5px solid #5dd4c7;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+@media(max-width: 720px){
+    .contentf{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin: 0;
+    }
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .wrapper {
+    width: 100%;
+    margin: 20px auto;
+  }
+  
+  .cards_wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .cards_wrap .card_item {
+    width: 25%;
+    padding: 10px;
+  }
+  
+  .cards_wrap .card_inner {
+    background: #fff;
+  }
+  
+  .cards_wrap .card_top {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    padding-bottom: 0;
+  }
+  
+  .cards_wrap .card_bottom {
+    padding: 15px;
+  }
+  
+  .cards_wrap .card_bottom .card_category {
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .cards_wrap .card_bottom .card_info {
+    padding: 15px;
+    margin: 10px 0;
+  }
+  
+  .cards_wrap .card_bottom .card_info .title {
+    color: #0071bc;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .cards_wrap .card_bottom .card_creator {
+    text-align: center;
+  }
+  
+  @media (max-width: 1024px) {
+    .cards_wrap .card_item {
+      width: 33.3%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cards_wrap .card_item {
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 528px) {
+    .cards_wrap .card_item {
+      width: 100%;
+    }
+  }

@@ -1,0 +1,28 @@
+.App {
+    padding-left: 0;
+    margin: 0;
+  }
+  body::-webkit-scrollbar{
+    width: 0.5rem;
+  }
+  body::-webkit-scrollbar-thumb{
+    background: #bcd1e9;
+  }
+  body::-webkit-scrollbar-track{
+    background: white;
+  }
+  body div::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  body div::-webkit-scrollbar-thumb{
+    background: #bcd1e9;
+  }
+  body div::-webkit-scrollbar-track{
+    background: #1e1e24;
+  }
+.page-element{
+  display: flex;
+  Flex-direction: column;
+  Min-height: 100vh;
+}

@@ -1,0 +1,80 @@
+.contactus{
+    margin-top: 5px;
+    background-color:#49c0b2;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.contentf{
+    padding-left: 6rem;
+    padding-right: 6rem;
+    margin: 0;
+}
+.justify{
+    padding-top: 10px;
+    text-align: justify;
+}
+.borderr{
+    border-top: 2px solid #efefef; 
+}
+.cont{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    height: 500px;
+    overflow: hidden;
+    text-align:center;
+}
+.contpic{
+    background: url(../assets/contactus3.jpg) no-repeat;
+    width: 1200px;
+    height: 500px;
+}
+.cardimg{
+    background: url(../assets/hospital.jpg) no-repeat;
+    width: 400px;
+    height: 400px;
+}
+.faq{
+    color: #013974;
+    border-bottom: 5px solid #5dd4c7;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+@media(max-width: 1200px){
+    .cont{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 720px;
+        height: 340px;
+        overflow: hidden;
+        text-align:center;
+    }
+    .contpic{
+        background: url(../assets/contactus1.jpg) no-repeat;
+        width: 720px;
+        height: 340px;
+    }
+}
+
+@media(max-width: 720px){
+    .contentf{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin: 0;
+    }
+    .cont{
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px;
+        height: 200px;
+        overflow: hidden;
+        text-align:center;
+    }
+    .contpic{
+        background: url(../assets/contactus2.jpg) no-repeat;
+        width: 400px;
+        height: 200px;
+    }
+}

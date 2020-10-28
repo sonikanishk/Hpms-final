@@ -1,0 +1,21 @@
+.footer{
+    padding: 2px;
+    margin: 0;
+    text-align: center;
+    background-color: rgb(251, 253, 255);
+    min-height: "100%";
+    justify-content: space-evenly;
+    font-size: 18px;
+    font-weight: 500;
+}
+.footer-bottom {
+  background: #3498DB;
+  color: white;
+  padding: 20px 0px 20px;
+}
+.copyright-text{
+  text-decoration: none;
+}
+.copyright-text:hover{
+  text-decoration: none;
+}
