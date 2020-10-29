@@ -22,6 +22,10 @@ import Appointment from './components/Appointment';
 import Reports from './components/Reports';
 import Donor from './components/Donor';
 import Admin from './components/Admin';
+import ManageDonors from './components/ManageDonors';
+import ManageDoctors from './components/ManageDoctors';
+import ManageAppointments from './components/ManageAppointments';
+import ManageQueries from './components/ManageQueries';
 
 import dotenv from 'dotenv';
 
@@ -53,7 +57,10 @@ function App() {
                         <Route path="/reports" exact component={Reports}/>
                         <Route path="/donor" exact component={Donor}/>
                         <Route path="/admin" exact component={Admin}/>
-                        
+                        <Route path="/manageappointments" exact component={ManageAppointments}/>
+                        <Route path="/managequeries" exact component={ManageQueries}/>
+                        <Route path="/managedoctors" exact component={ManageDoctors}/>
+                        <Route path="/managedonors" exact component={ManageDonors}/>  
                         
                 </Switch>
             </Router>

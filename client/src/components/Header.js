@@ -106,11 +106,10 @@ class Header extends React.Component {
                               <i class="fas fa-bars"></i>
                             </label>
                             <span class="comp" style={{margin:"0px"}}>
-                              <Link class="link rounded" to="/appointment"><div class="appointment"></div> <span class="sizz">MANAGE APPOINTMENTS</span> </Link>
-                              <Link class="link rounded" to="/reports"><div class="reports"></div> <span class="sizz">MANAGE LAB REPORTS</span> </Link>
-                              <Link class="link rounded" to="/departments"><div class="doctor"></div> <span class="sizz">MANAGE DOCTORS</span> </Link>
-                              <Link class="link rounded" to="/queries"><div class="queries"></div> <span class="sizz">MANAGE QUERIES</span></Link>
-                              <Link class="link rounded" to="/donor"><div class="donor"></div> <span class="sizz">MANAGE DONORS</span></Link>
+                              <Link class="link rounded" to="/manageappointments"><div class="appointment"></div> <span class="sizz">MANAGE APPOINTMENTS</span> </Link>
+                              <Link class="link rounded" to="/managedoctors"><div class="doctor"></div> <span class="sizz">MANAGE DOCTORS</span> </Link>
+                              <Link class="link rounded" to="/managequeries"><div class="queries"></div> <span class="sizz">MANAGE QUERIES</span></Link>
+                              <Link class="link rounded" to="/managedonors"><div class="donor"></div> <span class="sizz">MANAGE DONORS</span></Link>
                             </span>
                       </div>
                      </Navbar>
