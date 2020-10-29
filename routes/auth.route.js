@@ -12,9 +12,12 @@ const{
     staffController,
     docController,
     donorsController,
-    stafffController
+    stafffController,
 } = require("../controllers/auth.controller.js")
-
+const{
+    adminregisterController,
+    adminSignInController
+} = require('../controllers/admin.controller.js')
 const {
     validSign,
     validLogin,
@@ -35,6 +38,7 @@ router.get('/staff',staffController);
 router.post('/doc',docController);
 router.post('/donors',donorsController);
 router.post('/stafff',stafffController);
-
+router.post('/adminlogin',validLogin,adminSignInController);
+router.post('/adminsignup',validSign,adminregisterController);
 
 module.exports = router

@@ -31,8 +31,7 @@ class SignOut extends React.Component {
       name: '',
       email: ''
     }
-    
-    if(token!==undefined){
+    if(token!==undefined ){
       axios.get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
           headers: {
             Authorization: `Bearer ${this.state.token}`
@@ -58,7 +57,7 @@ class SignOut extends React.Component {
   render(){
   return (
     <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
-        {isAuth() ? null : <Redirect to='/login' />}
+        {isAuth() ? null : <Redirect to='/loginmain' />}
       <ToastContainer />
       <div className='max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1'>
         <div className='lg:w-1/2 xl:w-5/12 p-6 sm:p-12'>

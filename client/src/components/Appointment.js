@@ -89,6 +89,7 @@ class Appointment extends React.Component{
                 
                 {isAuth() ? null : toast.error('Please Sign in First')}
                 {isAuth() ? null : <Redirect to="/loginmain"/>}
+                
                 <ToastContainer/>
                 <div class="marqee">
                    <li class="list-inline">

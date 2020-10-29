@@ -1,6 +1,6 @@
 {
-  "name": "hpms",
-  "version": "1.0.0",
+  "name": "hpms-project",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {

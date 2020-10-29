@@ -61,7 +61,124 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <div class="header row" style={{margin: "0px"}}>
+        {isAuth() ? isAuth().role==='admin'? 
+           
+          <div class="header row" style={{margin: "0px"}}>
+            <div class="col-md-4 p1">
+            <Link to="/">
+                <div class="logo">
+
+                </div>
+            </Link>
+            </div>
+            <div class="col-md-8 p2">
+                <div class="nav1">
+                    <Nav id="mr-auto">
+                    
+                              <Link class="link sizzz" to="/"> HOME </Link>
+                              <Link class="link sizzz" to="/about-us"> ABOUT US </Link>
+
+                              <Link class="emergency sizzz" to="/emergency">
+                                  EMERGENCY 24x7
+                              </Link>
+                              <Link class="link sizzz" to="/contact-us"> CONTACT US </Link>
+                               
+                              {this.state.isLoggedIn==='yes'?
+                                <>   
+                                  <Link class="link sizzz" to="/signout" style = {{ marginRight: "15px" }}> SIGN OUT </Link>
+                                </>
+                              :
+                              <>
+                                <Link class="link sizzz" to="/loginmain"> SIGN IN </Link>
+                                <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> SIGN UP </Link>  
+                              </>
+                              }
+
+                    </Nav>
+                </div>
+                <div class="nav2">
+                    <Navbar id="mr-auto2">
+                      <div class="row" style={{margin:"0px",justifyContent:"center"}}>
+                            <input type="checkbox" id="check">
+
+                            </input>
+                            <label for="check" class="checkbtn">
+                              <i class="fas fa-bars"></i>
+                            </label>
+                            <span class="comp" style={{margin:"0px"}}>
+                              <Link class="link rounded" to="/appointment"><div class="appointment"></div> <span class="sizz">MANAGE APPOINTMENTS</span> </Link>
+                              <Link class="link rounded" to="/reports"><div class="reports"></div> <span class="sizz">MANAGE LAB REPORTS</span> </Link>
+                              <Link class="link rounded" to="/departments"><div class="doctor"></div> <span class="sizz">MANAGE DOCTORS</span> </Link>
+                              <Link class="link rounded" to="/queries"><div class="queries"></div> <span class="sizz">MANAGE QUERIES</span></Link>
+                              <Link class="link rounded" to="/donor"><div class="donor"></div> <span class="sizz">MANAGE DONORS</span></Link>
+                            </span>
+                      </div>
+                     </Navbar>
+                </div>
+
+            </div>
+
+        </div>
+          : 
+          <div class="header row" style={{margin: "0px"}}>
+            <div class="col-md-4 p1">
+            <Link to="/">
+                <div class="logo">
+
+                </div>
+            </Link>
+            </div>
+            <div class="col-md-8 p2">
+                <div class="nav1">
+                    <Nav id="mr-auto">
+                    
+                              <Link class="link sizzz" to="/"> HOME </Link>
+                              <Link class="link sizzz" to="/about-us"> ABOUT US </Link>
+
+                              <Link class="emergency sizzz" to="/emergency">
+                                  EMERGENCY 24x7
+                              </Link>
+                              <Link class="link sizzz" to="/contact-us"> CONTACT US </Link>
+                               
+                              {this.state.isLoggedIn==='yes'?
+                                <>   
+                                  <Link class="link sizzz" to="/signout" style = {{ marginRight: "15px" }}> SIGN OUT </Link>
+                                </>
+                              :
+                              <>
+                                <Link class="link sizzz" to="/loginmain"> SIGN IN </Link>
+                                <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> SIGN UP </Link>  
+                              </>
+                              }
+
+                    </Nav>
+                </div>
+                <div class="nav2">
+                    <Navbar id="mr-auto2">
+                      <div class="row" style={{margin:"0px",justifyContent:"center"}}>
+                            <input type="checkbox" id="check">
+
+                            </input>
+                            <label for="check" class="checkbtn">
+                              <i class="fas fa-bars"></i>
+                            </label>
+                            <span class="comp" style={{margin:"0px"}}>
+                              <Link class="link rounded" to="/appointment"><div class="appointment"></div> <span class="sizz">APPOINTMENTS</span> </Link>
+                              <Link class="link rounded" to="/reports"><div class="reports"></div> <span class="sizz">LAB REPORTS</span> </Link>
+                              <Link class="link rounded" to="/departments"><div class="doctor"></div> <span class="sizz">DEPARTMENTS</span> </Link>
+                              <Link class="link rounded" to="/queries"><div class="queries"></div> <span class="sizz">QUICK QUERIES</span></Link>
+                              <Link class="link rounded" to="/donor"><div class="donor"></div> <span class="sizz">FIND DONOR</span></Link>
+                            </span>
+                      </div>
+                      
+                     </Navbar>
+                </div>
+
+            </div>
+
+        </div> 
+          : 
+          <div class="header row" style={{margin: "0px"}}>
             <div class="col-md-4 p1">
             <Link to="/">
                 <div class="logo">
@@ -118,7 +235,7 @@ class Header extends React.Component {
             </div>
 
         </div>
-
+        }
       </div>
     );
   }

@@ -11,7 +11,7 @@ import Register from './components/Register';
 import LoginMain from './components/LoginMain.jsx';
 import LoginDoctor from './components/LoginDoctor.jsx';
 import Login from './components/Login.jsx';
-import LoginStaff from './components/LoginStaff.jsx';
+import LoginAdmin from './components/LoginAdmin.jsx';
 import Private from './components/Private.jsx';
 import Signout from './components/SignOut.jsx';
 import Forgot from './components/Forgot.js';
@@ -21,6 +21,7 @@ import Doctor from './components/Doctor';
 import Appointment from './components/Appointment';
 import Reports from './components/Reports';
 import Donor from './components/Donor';
+import Admin from './components/Admin';
 
 import dotenv from 'dotenv';
 
@@ -40,7 +41,7 @@ function App() {
                         <Route path="/register" exact component = {Register} />
                         <Route path="/logindoctor" exact component = {LoginDoctor} />
                         <Route path="/loginmain" exact component = {LoginMain} />
-                        <Route path="/loginstaff" exact component = {LoginStaff} />
+                        <Route path="/loginadmin" exact component = {LoginAdmin} />
                         <Route path="/login" exact component = {Login} />
                         <Route path="/private" exact component = {Private} />
                         <Route path="/signout" exact component = {Signout} />
@@ -51,6 +52,7 @@ function App() {
                         <Route path="/appointment" exact component={Appointment}/>
                         <Route path="/reports" exact component={Reports}/>
                         <Route path="/donor" exact component={Donor}/>
+                        <Route path="/admin" exact component={Admin}/>
                         
                         
                 </Switch>
