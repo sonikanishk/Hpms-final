@@ -5,11 +5,6 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
-function myfn() {
-    return(
-        alert('Message has been sent to Donor')
-    )
-}
 class Donor extends React.Component{
     state={
         bloodgrp: 'All',
@@ -17,7 +12,9 @@ class Donor extends React.Component{
         textch: 'Submit',
         details:[]
     }
-
+    myfn=(e) => {
+        alert('Message has been sent to Donor')
+    }  
     handleChange = text => (e) => {
         this.setState({ [text]: e.target.value });
     }
@@ -66,7 +63,7 @@ class Donor extends React.Component{
                                     
                                 </ul>
                                 <div class="card-body row">
-                                    <button onClick={myfn} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> Approach </button>
+                                    <button onClick={this.myfn} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> Approach </button>
                                 </div>
                         </div>          
          

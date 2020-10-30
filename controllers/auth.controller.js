@@ -319,6 +319,78 @@ exports.queryController = (req, res) => {
   }
 };
 
+exports.queriesController = (req, res) => {
+  
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    Query.find().then(exercises => res.json(exercises))
+    .catch(err => res.status(400).json('Error: ' + err));
+    
+  }
+};
+
+exports.deleteQueryController = (req, res) => {
+  const {id} = req.body;
+  const errors = validationResult(req);
+  
+  
+  console.log(id);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    Query.findByIdAndDelete(id)
+    .then(()=>res.json('Query Deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));  
+  }
+};
+
+exports.deleteDonorController = (req, res) => {
+  const {id} = req.body;
+  const errors = validationResult(req);
+  
+  
+  console.log(id);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    Donor.findByIdAndDelete(id)
+    .then(()=>res.json('Donor Deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));  
+  }
+};
+exports.deleteDoctorController = (req, res) => {
+  const {id} = req.body;
+  const errors = validationResult(req);
+  
+  
+  console.log(id);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    Doc.findByIdAndDelete(id)
+    .then(()=>res.json('Doctor Deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));  
+  }
+};
+
 exports.doctorController = (req, res) => {
   
   const errors = validationResult(req);

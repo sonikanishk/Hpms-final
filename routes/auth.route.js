@@ -13,6 +13,10 @@ const{
     docController,
     donorsController,
     stafffController,
+    queriesController,
+    deleteQueryController,
+    deleteDonorController,
+    deleteDoctorController
 } = require("../controllers/auth.controller.js")
 const{
     adminregisterController,
@@ -34,11 +38,14 @@ router.put('/resetpassword', resetPasswordValidator, resetPasswordController);
 router.get('/doctors',doctorController);
 router.get('/donor',donorController);
 router.get('/staff',staffController);
-
+router.get('/queries',queriesController);
 router.post('/doc',docController);
 router.post('/donors',donorsController);
 router.post('/stafff',stafffController);
 router.post('/adminlogin',validLogin,adminSignInController);
 router.post('/adminsignup',validSign,adminregisterController);
+router.post('/deleteQuery',deleteQueryController);
+router.post('/deleteDonor',deleteDonorController);
+router.post('/deleteDoctor',deleteDoctorController);
 
 module.exports = router
