@@ -1,0 +1,15 @@
+.checkbtn1{
+    font-size: 35px;
+    color: #65bad4;
+    cursor: pointer;
+  }
+#check1{
+    display: none;
+}
+#formmm{
+    display: none;
+}
+#check1:checked ~ #formmm{
+    display: block;
+    width: 100%;
+}

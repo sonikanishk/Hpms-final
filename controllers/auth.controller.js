@@ -319,6 +319,65 @@ exports.queryController = (req, res) => {
   }
 };
 
+exports.addDoctorController = (req, res) => {
+  const { email, name, phone, gender, address, speciality } = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    const colab = {name,email,gender,address,phone,speciality};
+    const doctor = new Doc(colab);
+        doctor.save((err, doctor) => {
+          if (err) {
+            console.log('Save error', errorHandler(err));
+            return res.status(401).json({
+              errors: errorHandler(err)
+            });
+          } else {
+            return res.json({
+              success: true,
+              message: doctor,
+              message: 'Query Sent'
+            });
+          }
+        });
+  }
+};
+
+exports.addDonorController = (req, res) => {
+  const { email, first_name,last_name , number, gender, organ ,blood_group} = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    const colab = {first_name,last_name,email,gender,number,blood_group,organ};
+    console.log(colab);
+    const doctor = new Donor(colab);
+        doctor.save((err, doctor) => {
+          if (err) {
+            console.log('Save error', errorHandler(err));
+            return res.status(401).json({
+              errors: errorHandler(err)
+            });
+          } else {
+            return res.json({
+              success: true,
+              message: doctor,
+              message: 'Query Sent'
+            });
+          }
+        });
+  }
+};
+
 exports.queriesController = (req, res) => {
   
   const errors = validationResult(req);

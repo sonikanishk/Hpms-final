@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const donorSchema = new mongoose.Schema(
     {
-      firstname: {
+      first_name: {
         type: String,
         trim: true,
         required: true
       },
-      lastname: {
+      last_name: {
         type: String,
         trim: true,
         required: true
@@ -27,7 +27,7 @@ const donorSchema = new mongoose.Schema(
         type: String,
         required: true
       },
-      bloodgrp : {
+      blood_group : {
         type: String,
         required: true
       },

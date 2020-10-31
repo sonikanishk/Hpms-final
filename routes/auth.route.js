@@ -16,7 +16,9 @@ const{
     queriesController,
     deleteQueryController,
     deleteDonorController,
-    deleteDoctorController
+    deleteDoctorController,
+    addDoctorController,
+    addDonorController
 } = require("../controllers/auth.controller.js")
 const{
     adminregisterController,
@@ -47,5 +49,7 @@ router.post('/adminsignup',validSign,adminregisterController);
 router.post('/deleteQuery',deleteQueryController);
 router.post('/deleteDonor',deleteDonorController);
 router.post('/deleteDoctor',deleteDoctorController);
+router.post('/adddoctor',addDoctorController);
+router.post('/adddonor',addDonorController);
 
 module.exports = router

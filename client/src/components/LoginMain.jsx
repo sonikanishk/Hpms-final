@@ -16,7 +16,7 @@ const Login = ({ history }) => {
             </h1>
             <div className='w-full flex-1 mt-8 text-indigo-500'>
               
-            <Link to='/logindoctor'>  
+            {/* <Link to='/logindoctor'>  
                 <button
                     style={{textDecoration:"no-underline"}}
                     type='submit'
@@ -25,7 +25,7 @@ const Login = ({ history }) => {
                     <i className='fas fa-sign-in-alt  w-6  -ml-2' />
                     <span className='ml-3'>Doctor Login</span>
                 </button>
-            </Link>
+            </Link> */}
             <Link to='/login'>  
                 <button
                     style={{textDecoration:"no-underline"}}
