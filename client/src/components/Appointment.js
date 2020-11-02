@@ -1,24 +1,35 @@
 import React from 'react';
 import './appointment.css'
-import { isAuth } from '../helpers/auth';
+import { isAuth ,signout} from '../helpers/auth';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
-function myfn() {
-    return(
-        alert('Appointment Booked for Tommorow 1pm')
-    )
-}
+
 
 class Appointment extends React.Component{
     state={
         department: 'All',
         name: '',
         textch: 'Submit',
-        details:[]
+        details:[],
+        userdetails: {}
     }
-
+    myfn = text => (e) => {
+        e.preventDefault();
+        const Drname = text.name;
+        const Pname = this.state.userdetails.name;
+        const Email = this.state.userdetails.email;
+        axios.post(`${process.env.REACT_APP_API_URL}/addappointment`,{drname:Drname,pname:Pname,email:Email}).then(res => {
+           
+            toast.success('Appointment Booked for Tommorow 11am');
+            
+        })
+        .catch(err => {
+            console.log(err.response)
+            toast.error(err.response.data.errors);
+          });
+    }
     handleChange = text => (e) => {
         this.setState({ [text]: e.target.value });
     }
@@ -37,7 +48,7 @@ class Appointment extends React.Component{
               })
               .catch(err => {
                console.log(err.response)
-               toast.error(err.response.data.error);
+               toast.error(err.response.data.errors);
                this.setState({textch:'Submit'});
              });
          } else {
@@ -63,7 +74,7 @@ class Appointment extends React.Component{
                                     
                                 </ul>
                                 <div class="card-body row">
-                                    <button onClick={myfn} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> Book Appointment </button>
+                                    <button onClick={this.myfn({name})} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> Book Appointment </button>
                                 </div>
                         </div>          
          
@@ -79,8 +90,30 @@ class Appointment extends React.Component{
         })
         .catch(err => {
          console.log(err.response)
-         toast.error(err.response.data.error);
+         toast.error(err.response.data.errors);
        });
+       if(isAuth()){
+       axios.get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
+            headers: {
+            Authorization: `Bearer ${this.state.token}`
+            }
+        })
+        .then(res => {
+            const deets = res.data;
+            this.setState({userdetails:deets});
+            // console.log(this.state.formdata);
+            
+        })
+        .catch(err => {
+            toast.error(`Error To Your Information ${err.response.statusText}`);
+            if (err.response.status === 401) {
+            signout(() => {
+                
+            });
+            }
+        });
+        }
+    
     };
     render(){
         const details = this.state.details;
@@ -140,7 +173,7 @@ class Appointment extends React.Component{
                         }
                         {details.map((item, index) => {
                             return (
-                            <div className="col-md-4 col-sm-6" style={{padding:"10px"}}>
+                            <div className="col-lg-4 col-sm-6" style={{padding:"10px"}}>
                                 <this.CustomCard
                                 name={item.name}    
                                 email={item.email}

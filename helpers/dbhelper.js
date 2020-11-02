@@ -10,14 +10,14 @@ const uniqueMessage = error => {
         field = field.split(" dup key")[0];
         field = field.substring(0, field.lastIndexOf("_"));
         req.flash("errors", [{
-            msg: "An account with this " + field + " already exists."
+            msg: "An account with this " + field + " Already exists."
         }]);
         output =
             fieldName.charAt(0).toUpperCase() +
             fieldName.slice(1) +
-            " already exists";
+            " Already exists";
     } catch (ex) {
-        output = "already exists";
+        output = "Already exists";
     }
 
     return output;

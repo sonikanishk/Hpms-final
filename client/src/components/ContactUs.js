@@ -49,7 +49,7 @@ class ContactUs extends React.Component {
               })
               .catch(err => {
                console.log(err.response)
-               toast.error(err.response.data.error);
+               toast.error(err.response.data.errors);
              });
          } else {
            toast.error('Please fill all fields');

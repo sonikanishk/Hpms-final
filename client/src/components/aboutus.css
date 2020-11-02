@@ -19,7 +19,10 @@
     width: 1200px;
     height: 400px;
 }
-
+.top{
+    display: flex;
+    flex: auto;
+}
 .content{
     padding-left: 6rem;
     padding-right: 6rem;
@@ -72,4 +75,18 @@
         width: 800px;
         height: 250px;
     }
+}
+.box2{
+    display: none;
+}
+@media(max-width: 1000px){
+.top{
+    display: none;
+}
+.box1{
+    display: none;
+}
+.box2{
+    display: flex;
+}
 }

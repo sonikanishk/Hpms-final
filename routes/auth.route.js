@@ -18,7 +18,11 @@ const{
     deleteDonorController,
     deleteDoctorController,
     addDoctorController,
-    addDonorController
+    addDonorController,
+    addAppointmentController,
+    appointmentController,
+    deleteAppointmentController,
+    userController
 } = require("../controllers/auth.controller.js")
 const{
     adminregisterController,
@@ -28,19 +32,24 @@ const {
     validSign,
     validLogin,
     forgotPasswordValidator,
-    resetPasswordValidator
+    resetPasswordValidator,
+    queryValidator,
+    doctorValidator,
+    donorValidator
 } = require('../helpers/valid')
 
 
 router.post('/register',validSign,registerController)
 router.post('/login',validLogin,SignInController)
-router.post('/query',queryController);
+router.post('/query',queryValidator,queryController);
 router.put('/forgotpassword', forgotPasswordValidator, forgotPasswordController);
 router.put('/resetpassword', resetPasswordValidator, resetPasswordController);
 router.get('/doctors',doctorController);
 router.get('/donor',donorController);
 router.get('/staff',staffController);
 router.get('/queries',queriesController);
+router.get('/users',userController);
+router.get('/appointments',appointmentController);
 router.post('/doc',docController);
 router.post('/donors',donorsController);
 router.post('/stafff',stafffController);
@@ -49,7 +58,10 @@ router.post('/adminsignup',validSign,adminregisterController);
 router.post('/deleteQuery',deleteQueryController);
 router.post('/deleteDonor',deleteDonorController);
 router.post('/deleteDoctor',deleteDoctorController);
-router.post('/adddoctor',addDoctorController);
-router.post('/adddonor',addDonorController);
+router.post('/adddoctor',doctorValidator,addDoctorController);
+router.post('/adddonor',donorValidator,addDonorController);
+router.post('/addappointment',addAppointmentController);
+router.post('/cancelAppointment',deleteAppointmentController);
+
 
 module.exports = router

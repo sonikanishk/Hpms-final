@@ -3,6 +3,7 @@ const Query = require('../models/query.model');
 const Doc = require('../models/doctor.model');
 const Staff = require('../models/staff.model');
 const Donor = require('../models/donor.model');
+const Appointment = require('../models/appointment.model');
 
 const expressJwt = require('express-jwt');
 const _ = require('lodash');
@@ -359,7 +360,6 @@ exports.addDonorController = (req, res) => {
     });
   } else {
     const colab = {first_name,last_name,email,gender,number,blood_group,organ};
-    console.log(colab);
     const doctor = new Donor(colab);
         doctor.save((err, doctor) => {
           if (err) {
@@ -389,6 +389,21 @@ exports.queriesController = (req, res) => {
     });
   } else {
     Query.find().then(exercises => res.json(exercises))
+    .catch(err => res.status(400).json('Error: ' + err));
+    
+  }
+};
+exports.userController = (req, res) => {
+  
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    User.find().then(exercises => res.json(exercises))
     .catch(err => res.status(400).json('Error: ' + err));
     
   }
@@ -435,8 +450,6 @@ exports.deleteDoctorController = (req, res) => {
   const {id} = req.body;
   const errors = validationResult(req);
   
-  
-  console.log(id);
 
   if (!errors.isEmpty()) {
     const firstError = errors.array().map(error => error.msg)[0];
@@ -446,6 +459,25 @@ exports.deleteDoctorController = (req, res) => {
   } else {
     Doc.findByIdAndDelete(id)
     .then(()=>res.json('Doctor Deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));  
+  }
+};
+
+exports.deleteAppointmentController = (req, res) => {
+  const {id} = req.body;
+  const errors = validationResult(req);
+  
+  
+  console.log(id);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    Appointment.findByIdAndDelete(id)
+    .then(()=>res.json('Appointment Deleted'))
     .catch(err => res.status(400).json('Error: ' + err));  
   }
 };
@@ -493,6 +525,22 @@ exports.donorController = (req, res) => {
     });
   } else {
     Donor.find().then(exercises => res.json(exercises))
+    .catch(err => res.status(400).json('Error: ' + err));
+    
+  }
+};
+
+exports.appointmentController = (req, res) => {
+  
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    Appointment.find().then(exercises => res.json(exercises))
     .catch(err => res.status(400).json('Error: ' + err));
     
   }
@@ -574,5 +622,35 @@ exports.donorsController = (req, res) => {
       Donor.find({organ:organ,blood_group:bloodgrp}).then(exercises => res.json(exercises))
       .catch(err => res.status(400).json('Error: ' + err));
     } 
+  }
+};
+
+exports.addAppointmentController = (req, res) => {
+  const { drname, pname, email} = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    const colab = {drname,pname,email};
+    // console.log(colab);
+    const appoint = new Appointment(colab);
+        appoint.save((err, appoint) => {
+          if (err) {
+            console.log('Save error', errorHandler(err));
+            return res.status(401).json({
+              errors: errorHandler(err)
+            });
+          } else {
+            return res.json({
+              success: true,
+              message: appoint,
+              message: 'Query Sent'
+            });
+          }
+        });
   }
 };

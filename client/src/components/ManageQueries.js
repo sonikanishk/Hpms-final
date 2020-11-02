@@ -13,15 +13,24 @@ class ManageQueries extends React.Component {
   }  
   CustomCard = ({ id,name,comment }) => {
     return (
-        <div class="row border" style={{margin:"0px",padding:"5px"}}>               
+      <div>
+        <div class="row border box1" style={{margin:"0px",padding:"5px"}}>               
             
-            <span class="col-md-3"> Name: {name} </span>
-            <span class="col-md-8"> Comment: {comment}</span>
+            <span class="col-md-3">  {name} </span>
+            <span class="col-md-8">  {comment}</span>
             {/* <button label="Delete Query" onClick={this.myfn(id)}  class="col-md-1" style={{textAlign:"center"}}> <i class="fas fa-minus-circle"> </i> </button> */}
             <button onClick={this.myfn(id)} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none col-md-1"> Delete </button>
 
-        </div>  
-  
+        </div>
+        <div class="row border box2" style={{margin:"0px",padding:"5px"}}>               
+            
+            <span class="col-md-3"> Name: {name} </span>
+            <span class="col-md-8"> Query: {comment}</span>
+            {/* <button label="Delete Query" onClick={this.myfn(id)}  class="col-md-1" style={{textAlign:"center"}}> <i class="fas fa-minus-circle"> </i> </button> */}
+            <button onClick={this.myfn(id)} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none col-md-1"> Delete </button>
+
+        </div>   
+      </div>
     );
   };
   componentDidMount(){
@@ -33,7 +42,7 @@ class ManageQueries extends React.Component {
     })
     .catch(err => {
      console.log(err.response)
-     toast.error(err.response.data.error);
+     toast.errors(err.response.data.errors);
    });
   };
     render() {
@@ -49,7 +58,11 @@ class ManageQueries extends React.Component {
                         <h3> Queries / Feedback </h3>
                     </div>
                     <div class="borderr col-12" style={{paddingBottom:"15px"}}></div> 
-                    
+                    <div class="top">  
+                      <div class="col-3"> Name</div>
+                      <div class="col-8"> Query </div>
+                      <div class="col-1"> Delete </div>
+                    </div>
                     {details.map((item, index) => {
                             return (
                             <div class="col-12">

@@ -33,7 +33,7 @@ class Donor extends React.Component{
               })
               .catch(err => {
                console.log(err.response)
-               toast.error(err.response.data.error);
+               toast.error(err.response.data.errors);
                this.setState({textch:'Submit'});
              });
          } else {
@@ -79,7 +79,7 @@ class Donor extends React.Component{
         })
         .catch(err => {
          console.log(err.response)
-         toast.error(err.response.data.error);
+         toast.error(err.response.data.errors);
        });
     };
     render(){
