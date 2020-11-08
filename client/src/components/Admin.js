@@ -83,7 +83,7 @@ class Admin extends React.Component {
                     <p class="card-text"> Only Registered Users can book Appointments or View Donors </p>
                   </div>
                   <div class="card-footer">
-                    <small class="text-white"> Last updated 3 mins ago </small>
+                    
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@ class Admin extends React.Component {
                   </div>
                   <div class="card-footer">
                     <Link to="managedoctors" class="btn btn-info"> Manage Doctors </Link>
-                    <small class="text-white" style={{float: "right"}}> Last updated 3 mins ago</small>
+                    
                   </div>
                 </div>
               </div>
@@ -109,7 +109,7 @@ class Admin extends React.Component {
                   </div>
                   <div class="card-footer">
                     <Link to="managedonors" class="btn btn-info"> Manage Donors </Link>
-                    <small class="text-white" style={{float: "right"}}> Last updated 3 mins ago</small>
+                    
                   </div>
                 </div>
               </div>
@@ -122,7 +122,7 @@ class Admin extends React.Component {
                   </div>
                   <div class="card-footer">
                     <Link to="manageappointments" class="btn btn-info"> Manage Appointments </Link>
-                    <small class="text-white" style={{float: "right"}}> Last updated 3 mins ago</small>
+                    
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ class Admin extends React.Component {
                   </div>
                   <div class="card-footer">
                     <Link to="managequeries" class="btn btn-info"> Manage Queries </Link>
-                    <small class="text-white" style={{float: "right"}}> Last updated 3 mins ago</small>
+                    
                   </div>
                 </div>
               </div>
@@ -147,7 +147,8 @@ class Admin extends React.Component {
                     <p class="card-text"> Our World Class staff provies best in quality experience to our Patients </p>
                   </div>
                   <div class="card-footer">
-                    <small class="text-white"> Last updated 3 mins ago </small>
+                    <Link to="managestaff" class="btn btn-info"> Manage Staff </Link>
+                    
                   </div>
                 </div>
               </div> 

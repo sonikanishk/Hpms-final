@@ -2,21 +2,21 @@ import React from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import './mdoctors.css'
-class ManageDoctors extends React.Component {
+class ManageStaff extends React.Component {
   state={
     details:[],
-    name: '',
+    firstname: '',
+    lastname: '',
     email: '',
     gender: '',
     textchange: 'Submit',
     number: '',
-    address: '',
-    speciality: ''
+    designation: '',
+    shift: ''
   }
   myfn = id => (e) => {
-    // console.log(id)  
-    axios.post(`${process.env.REACT_APP_API_URL}/deleteDoctor`,{id:id});
-      alert('Doctor has been removed. Please Refresh');
+    axios.post(`${process.env.REACT_APP_API_URL}/deleteStaff`,{id:id});
+      alert('Staff has been removed. Please Refresh');
   }
   handleChange = text => (e) => {
     this.setState({ [text]: e.target.value });
@@ -25,23 +25,25 @@ handleSubmit = (e) =>{
     e.preventDefault();
     this.setState({textchange:'Submitting'});
     
-    const Name = this.state.name;
+    const FName = this.state.firstname;
+    const LName = this.state.lastname;
     const Email = this.state.email;
-    const Address = this.state.address;
+    const Shift = this.state.shift;
     const Gender = this.state.gender;
     const Number = this.state.number;
-    const Speciality = this.state.speciality
+    const Designation = this.state.designation
     
-    if (Email && Name && Address && Number && Gender && Speciality) {
-        axios.post(`${process.env.REACT_APP_API_URL}/adddoctor`, {email:Email,name:Name,phone:Number,gender:Gender,address:Address,speciality:Speciality}).then(res => {
+    if (Email && FName && LName && Shift && Number && Gender && Designation) {
+        axios.post(`${process.env.REACT_APP_API_URL}/addstaff`, {email:Email,first_name:FName,last_name: LName,number:Number,gender:Gender,shift:Shift,designation:Designation}).then(res => {
               this.setState({email:''});
-              this.setState({name:''});
-              this.setState({address:''});
+              this.setState({firstname:''});
+              this.setState({lastname:''});
+              this.setState({shift:''});
               this.setState({number:''});
               this.setState({gender:''});
-              this.setState({speciality:''});
+              this.setState({designation:''});
               
-              toast.success(`Doctor added Successfully. Please Refresh`);
+              toast.success(`Staff added Successfully. Please Refresh`);
           })
           .catch(err => {
            console.log(err.response)
@@ -52,22 +54,20 @@ handleSubmit = (e) =>{
      }
      this.setState({textchange:'Submit'});
 }
-  CustomCard = ({id,name, email, address, number, speciality }) => {
+  CustomCard = ({id,fname,lname, email, shift, number, designation }) => {
     return (
       <div>
         
                     <div class="card">
                             
                             <div class="card-body">
-                                <h4 class="card-title" style={{textAlign:"center"}}> {name} </h4>
+                                <h4 class="card-title" style={{textAlign:"center"}}> {fname}  {lname} </h4>
                             </div>
                             <ul class="list-group list-group-flush" style={{fontSize:"13pt"}}>
-                                
-                                <li class="deets"> &nbsp; <i class="far fa-building"></i> Department: {speciality}  </li>
+                            <li class="deets"> &nbsp; <i class="far fa-building"></i> Designation: {designation}  </li>
                                 <li class="deets"> &nbsp; <i class="fas fa-phone-square-alt"></i> Contact: {number}  </li>
-                                <li class="deets"> &nbsp; <i class="fas fa-envelope-square"></i> Email: {email} </li> 
-                                <li class="deets"> &nbsp; <i class="far fa-address-card"></i> Address: {address} </li> 
-                                
+                                <li class="deets"> &nbsp; <i class="fas fa-envelope-square"></i> Email: {email} </li>
+                                <li class="deets"> &nbsp; <i class="far fa-address-card"></i> Shift: {shift} </li>
                             </ul>
                             <div class="card-body row">
                                 <button onClick={this.myfn(id)} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> Remove </button>
@@ -79,8 +79,8 @@ handleSubmit = (e) =>{
   };
   componentDidMount(){
         
-    axios.get(`${process.env.REACT_APP_API_URL}/doctors`).then(res => {
-        
+    axios.get(`${process.env.REACT_APP_API_URL}/staff`).then(res => {
+        console.log(res.data);
         this.setState({details:res.data});
                       
     })
@@ -95,54 +95,57 @@ handleSubmit = (e) =>{
         <div>
           <ToastContainer/>
             <div class="findadoc"> 
-                    <h2> MANAGE DOCTORS </h2>
+                    <h2> MANAGE STAFF </h2>
             </div>
             <div class="row content">
                     <div class="ourstory">
-                        <h3> Doctors </h3>
+                        <h3> Staff </h3>
                     </div>
                     
                     <div class="borderr col-12" style={{paddingBottom:"15px"}}></div> 
                     <div class="col-12">
-                      {/* <button onClick={this.myfn1(id)} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> Add a Doctor </button> */}
                       <input type="checkbox" id="check1">
 
                       </input>
                       <label for="check1" class="checkbtn1">
-                        <h4> <i class="fas fa-plus"> </i> Add a Doctor </h4>
+                        <h4> <i class="fas fa-plus"> </i> Add a Staff Member </h4>
                       </label>
                       
 
                         <form style={{paddingTop:"10px",marginTop:"10px",paddingBottom:"10px",marginBottom:"10px"}} class="rounded  card" id="formmm" onSubmit={this.handleSubmit}>
                             <div class="contentf">
-                                <h3 style={{textAlign:"center",paddingTop:"10px",paddingBottom:"20px"}}> DOCTOR DETAILS </h3>
+                                <h3 style={{textAlign:"center",paddingTop:"10px",paddingBottom:"20px"}}> STAFF DETAILS </h3>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label> Name* </label>
-                                        <input onChange={this.handleChange('name')} type="text" class="form-control" value = {this.state.name} placeholder="Please enter Name"/>
+                                    <div class="form-group col-md-4">
+                                        <label> First Name* </label>
+                                        <input onChange={this.handleChange('firstname')} type="text" class="form-control" value = {this.state.firstname} placeholder="Please enter First Name"/>
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
+                                        <label> Last Name* </label>
+                                        <input onChange={this.handleChange('lastname')} type="text" class="form-control" value = {this.state.lastname} placeholder="Please enter Last Name"/>
+                                    </div>
+                                    <div class="form-group col-md-4">
                                         <label> Email* </label>
                                         <input onChange={this.handleChange('email')} type="email" class="form-control" value = {this.state.email} placeholder="Please enter Email"/>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label> Address* </label>
-                                    <input onChange={this.handleChange('address')} type="text" class="form-control" value = {this.state.address} placeholder="Please enter Address"/>
-                                </div>
                             
                                 <div class="form-row">
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-6">
+                                        <label> Shift* </label>
+                                        <input onChange={this.handleChange('shift')} type="text" class="form-control" value = {this.state.shift} placeholder="Please enter Shift timings"/>
+                                    </div>
+                                    <div class="form-group col-md-6">
                                         <label>Gender*</label>
                                         <input onChange={this.handleChange('gender')} type="text" class="form-control" value = {this.state.gender} placeholder="Please enter Gender"/>
                                     </div>
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-6">
                                       <label > Phone Number* </label>
                                       <input onChange={this.handleChange('number')} type="tel" class="form-control" value = {this.state.number} placeholder="Please enter Phone Number"/>
                                     </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Speciality*</label>
-                                        <input onChange={this.handleChange('speciality')} type="text" class="form-control" value = {this.state.speciality} placeholder="Please enter Speciality"/>
+                                    <div class="form-group col-md-6">
+                                        <label>Designation*</label>
+                                        <input onChange={this.handleChange('designation')} type="text" class="form-control" value = {this.state.designation} placeholder="Please enter Designation"/>
                                     </div>
                                     
                                 </div>
@@ -159,11 +162,13 @@ handleSubmit = (e) =>{
                             <div className="col-md-4 col-sm-6" style={{padding:"10px"}}>
                                 <this.CustomCard
                                 id = {item._id}
-                                name={item.name}    
+                                fname={item.first_name}
+                                lname={item.last_name}    
                                 email={item.email}                                
-                                address={item.address}
-                                number={item.phone}
-                                speciality={item.speciality}
+                                shift={item.shift}
+                                number={item.number}
+                                gender={item.gender}
+                                designation={item.designation}
                                 />
                             </div>
                         )
@@ -175,4 +180,4 @@ handleSubmit = (e) =>{
       )
     }
 }
-export default ManageDoctors;
+export default ManageStaff;

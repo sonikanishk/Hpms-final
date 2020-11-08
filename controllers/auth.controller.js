@@ -415,6 +415,35 @@ exports.addDonorController = (req, res) => {
   }
 };
 
+exports.addStaffController = (req, res) => {
+  const { email, first_name,last_name , number, gender,designation,shift} = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    const colab = {first_name,last_name,email,gender,number,designation,shift};
+    const doctor = new Staff(colab);
+        doctor.save((err, doctor) => {
+          if (err) {
+            console.log('Save error', errorHandler(err));
+            return res.status(401).json({
+              errors: errorHandler(err)
+            });
+          } else {
+            return res.json({
+              success: true,
+              message: doctor,
+              message: 'Query Sent'
+            });
+          }
+        });
+  }
+};
+
 exports.queriesController = (req, res) => {
   
   const errors = validationResult(req);
@@ -458,6 +487,23 @@ exports.deleteQueryController = (req, res) => {
   } else {
     Query.findByIdAndDelete(id)
     .then(()=>res.json('Query Deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));  
+  }
+};
+
+exports.deleteStaffController = (req, res) => {
+  const {id} = req.body;
+  const errors = validationResult(req);
+  
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    Staff.findByIdAndDelete(id)
+    .then(()=>res.json('Staff Deleted'))
     .catch(err => res.status(400).json('Error: ' + err));  
   }
 };

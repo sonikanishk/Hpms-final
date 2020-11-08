@@ -26,7 +26,7 @@ import ManageDonors from './components/ManageDonors';
 import ManageDoctors from './components/ManageDoctors';
 import ManageAppointments from './components/ManageAppointments';
 import ManageQueries from './components/ManageQueries';
-
+import ManageStaff from './components/ManageStaff'
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -61,6 +61,8 @@ function App() {
                         <Route path="/managequeries" exact component={ManageQueries}/>
                         <Route path="/managedoctors" exact component={ManageDoctors}/>
                         <Route path="/managedonors" exact component={ManageDonors}/>  
+                        <Route path="/managestaff" exact component={ManageStaff}/>  
+                        
                         
                 </Switch>
             </Router>
