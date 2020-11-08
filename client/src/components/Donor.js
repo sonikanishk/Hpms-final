@@ -92,7 +92,7 @@ class Donor extends React.Component{
                 <ToastContainer/>
                 <div class="marqee">
                    <li class="list-inline">
-                       COVID-19 Helpline: 011-42253001, 011-42253002, 011-42253003, +91-9818840984, +91-9311407392, 9311407393
+                     COVID-19 Helpline: 011-44444444, 011-44444445, 011-44444446, +91-9999999991, +91-9999999992
                    </li>
                 </div>
                 <div class="findadoc"> 
@@ -140,7 +140,7 @@ class Donor extends React.Component{
                         
                         {details.length === 0?this.state.organ!=='All'?
                         
-                        <div style={{padding:"10px"}}> Sorry we could not find any Results. Please check the Name or try something else. </div>
+                        <div style={{padding:"10px"}}> Sorry we could not find any Results. </div>
                         
                         :
                         null

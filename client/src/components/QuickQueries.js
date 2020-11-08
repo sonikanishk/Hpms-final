@@ -61,7 +61,7 @@ class QuickQueries extends React.Component {
                 <ToastContainer />
                 <div class="marqee">
                    <li class="list-inline">
-                      COVID-19 Helpline: 011-42253001, 011-42253002, 011-42253003, +91-9818840984, +91-9311407392, 9311407393
+                   COVID-19 Helpline: 011-44444444, 011-44444445, 011-44444446, +91-9999999991, +91-9999999992
                    </li>
                 </div>
                 <div class = "contactus responsive">
@@ -208,19 +208,7 @@ class QuickQueries extends React.Component {
                                 <li>Special arrangements to meet specific religious or dietary needs</li>
                                 <li>Daily updates for your referring doctors and family</li></ul><p></p>
                             </li>
-                            <li><b>What modes of payment do you accept?</b>
-                                <p>We accept the following modes of payment:</p>
-                                <p><b>Wire Transfer-</b>
-                                You can transfer money directly from your bank account to HPMS
-                                Healthcare's account</p>
-                                <p><b>Direct payment-</b>
-                                At the hospital, you can pay your bills directly through cash, card, or
-                                traveler's cheque</p>
-                                <p><b>Please Note:</b>&nbsp;We accept all major credit cards like VISA, MASTER Card, AMEX and
-                                CIRRUS. We accept payment for inpatient services in the following currencies- US
-                                Dollar, Euro, Pound Sterling, Omani Riyal, UAE Dirham, Kuwait Dinar, Saudi Riyal and
-                                Singapore dollars.</p>
-                            </li>
+                            
 					</ol>
                     </div>
                 </div>

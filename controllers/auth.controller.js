@@ -38,8 +38,6 @@ exports.registerController = (req, res) => {
     });
     const colab = {name,email,password};
     const user = new User(colab);
-        
-        // console.log(colab);
 
         user.save((err, user) => {
           if (err) {
@@ -155,7 +153,6 @@ exports.adminMiddleware = (req, res, next) => {
 
 exports.forgotPasswordController = (req, res) => {
   const { email } = req.body;
-  console.log(email);
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -204,7 +201,7 @@ exports.forgotPasswordController = (req, res) => {
           },
           (err, success) => {
             if (err) {
-              console.log('RESET PASSWORD LINK ERROR', err);
+              
               return res.status(400).json({
                 error:
                   'Database connection error on user password forgot request'
@@ -213,13 +210,13 @@ exports.forgotPasswordController = (req, res) => {
               sgMail
                 .send(emailData)
                 .then(sent => {
-                  // console.log('SIGNUP EMAIL SENT', sent)
+                  
                   return res.json({
                     message: `Email has been sent to ${email}. Follow the instruction to activate your account`
                   });
                 })
                 .catch(err => {
-                  // console.log('SIGNUP EMAIL SENT ERROR', err)
+                  
                   return res.json({
                     message: err.message
                   });
@@ -229,6 +226,46 @@ exports.forgotPasswordController = (req, res) => {
         );
       }
     );
+  }
+};
+
+exports.ansQueryController = (req, res) => {
+  const { email, answer, query } = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    const emailData = {
+      from: process.env.EMAIL_FROM,
+      to: email,
+      subject: `Answer to your query `,
+      html: `
+                <h2>Hey! Hope you are doing well this is the response to your query you recently asked on HPMS website.</h2>
+                <p> Queston:${query} </p>
+                <p> Answer:${answer} </p>
+                <hr/>
+                <p> Thank You for your query. </p>
+            `
+    };
+    sgMail
+            .send(emailData)
+            .then(sent => {
+              
+              return res.json({
+                message: `Email has been sent to ${email}.`
+              });
+            })
+            .catch(err => {
+              
+              return res.json({
+                message: err.message
+              });
+            });
+   
   }
 };
 
@@ -412,9 +449,6 @@ exports.userController = (req, res) => {
 exports.deleteQueryController = (req, res) => {
   const {id} = req.body;
   const errors = validationResult(req);
-  
-  
-  console.log(id);
 
   if (!errors.isEmpty()) {
     const firstError = errors.array().map(error => error.msg)[0];
@@ -431,9 +465,6 @@ exports.deleteQueryController = (req, res) => {
 exports.deleteDonorController = (req, res) => {
   const {id} = req.body;
   const errors = validationResult(req);
-  
-  
-  console.log(id);
 
   if (!errors.isEmpty()) {
     const firstError = errors.array().map(error => error.msg)[0];
@@ -466,9 +497,7 @@ exports.deleteDoctorController = (req, res) => {
 exports.deleteAppointmentController = (req, res) => {
   const {id} = req.body;
   const errors = validationResult(req);
-  
-  
-  console.log(id);
+
 
   if (!errors.isEmpty()) {
     const firstError = errors.array().map(error => error.msg)[0];
@@ -636,7 +665,6 @@ exports.addAppointmentController = (req, res) => {
     });
   } else {
     const colab = {drname,pname,email};
-    // console.log(colab);
     const appoint = new Appointment(colab);
         appoint.save((err, appoint) => {
           if (err) {
