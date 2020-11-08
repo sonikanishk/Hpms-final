@@ -8,7 +8,7 @@ class ManageAppointments extends React.Component {
   }
   myfn = id => (e) => {
       axios.post(`${process.env.REACT_APP_API_URL}/cancelAppointment`,{id:id});
-      toast.error('Appointment has been Canceled');
+      toast.error('Appointment has been Canceled. Please Refresh');
   }  
   CustomCard = ({ id,pname,email,drname,time }) => {
     return (

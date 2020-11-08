@@ -11,18 +11,23 @@ class Appointment extends React.Component{
     state={
         department: 'All',
         name: '',
+        time: '',
         textch: 'Submit',
         details:[],
         userdetails: {}
     }
+    
     myfn = text => (e) => {
         e.preventDefault();
         const Drname = text.name;
         const Pname = this.state.userdetails.name;
         const Email = this.state.userdetails.email;
-        axios.post(`${process.env.REACT_APP_API_URL}/addappointment`,{drname:Drname,pname:Pname,email:Email}).then(res => {
-           
-            toast.success('Appointment Booked for Tommorow 11am');
+        const Time = Math.floor(Math.random() * 4) + 1;
+        const stTime = Time+'PM';
+        this.setState({time:stTime});
+        axios.post(`${process.env.REACT_APP_API_URL}/addappointment`,{drname:Drname,pname:Pname,email:Email,time:stTime}).then(res => {
+            
+            toast.success(`Appointment Booked for Tommorow ${Time}PM`);
             
         })
         .catch(err => {
