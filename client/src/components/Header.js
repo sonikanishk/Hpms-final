@@ -163,7 +163,7 @@ class Header extends React.Component {
                               <i class="fas fa-bars"></i>
                             </label>
                             <span class="comp" style={{margin:"0px"}}>
-                              <Link class="link rounded" to="/appointment"><div class="appointment"></div> <span class="sizz">APPOINTMENTS</span> </Link>
+                              <Link class="link rounded" to="/appointment"><div class="appointment"></div> <span class="sizz">FIND A DOCTOR</span> </Link>
                               <Link class="link rounded" to="/reports"><div class="reports"></div> <span class="sizz">LAB REPORTS</span> </Link>
                               <Link class="link rounded" to="/departments"><div class="doctor"></div> <span class="sizz">DEPARTMENTS</span> </Link>
                               <Link class="link rounded" to="/queries"><div class="queries"></div> <span class="sizz">QUICK QUERIES</span></Link>
