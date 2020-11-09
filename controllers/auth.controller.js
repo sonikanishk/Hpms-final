@@ -540,6 +540,23 @@ exports.deleteDoctorController = (req, res) => {
   }
 };
 
+exports.deleteUserController = (req, res) => {
+  const {id} = req.body;
+  const errors = validationResult(req);
+  
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    User.findByIdAndDelete(id)
+    .then(()=>res.json('User Deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));  
+  }
+};
+
 exports.deleteAppointmentController = (req, res) => {
   const {id} = req.body;
   const errors = validationResult(req);

@@ -83,7 +83,7 @@ class Admin extends React.Component {
                     <p class="card-text"> Only Registered Users can book Appointments or View Donors </p>
                   </div>
                   <div class="card-footer">
-                    
+                    <Link to="viewusers" class="btn btn-info"> View Users </Link>
                   </div>
                 </div>
               </div>
