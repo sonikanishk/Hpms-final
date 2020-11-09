@@ -39,7 +39,8 @@ const {
     resetPasswordValidator,
     queryValidator,
     doctorValidator,
-    donorValidator
+    donorValidator,
+    staffValidator
 } = require('../helpers/valid')
 
 
@@ -70,7 +71,7 @@ router.post('/adddoctor',doctorValidator,addDoctorController);
 router.post('/adddonor',donorValidator,addDonorController);
 router.post('/addappointment',addAppointmentController);
 router.post('/cancelAppointment',deleteAppointmentController);
-router.post('/addstaff',addStaffController);
+router.post('/addstaff',donorValidator,addStaffController);
 
 
 module.exports = router

@@ -126,3 +126,34 @@ exports.doctorValidator = [
         
     
 ];
+
+exports.staffValidator = [
+    check('first_name', 'Name is required').notEmpty()
+    .isLength({
+        min: 2,
+        max: 32
+    }).withMessage('First Name must be between 3 to 32 characters'),
+    
+    check('last_name', 'Name is required').notEmpty()
+    .isLength({
+        min: 2,
+        max: 32
+    }).withMessage('Last Name must be between 3 to 32 characters'),
+    
+    check('email')
+        .not()
+        .isEmpty()
+        .isEmail()
+        .withMessage('Must be a valid Email address'),
+    
+    check('phone')
+        .not()
+        .isEmpty()
+        .isLength({
+            min: 10,
+            max: 10
+        })
+        .withMessage('Must be a valid Phone Number'),
+        
+    
+];

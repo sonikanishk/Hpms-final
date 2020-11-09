@@ -80,7 +80,7 @@ handleSubmit = (e) =>{
   componentDidMount(){
         
     axios.get(`${process.env.REACT_APP_API_URL}/staff`).then(res => {
-        console.log(res.data);
+        
         this.setState({details:res.data});
                       
     })
