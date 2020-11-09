@@ -107,7 +107,7 @@ class Header extends React.Component {
                             </label>
                             <span class="comp" style={{margin:"0px"}}>
                               <Link class="link rounded" to="/manageappointments"><div class="appointment"></div> <span class="sizz">MANAGE APPOINTMENTS</span> </Link>
-                              <Link class="link rounded" to="/reports"><div class="reports"></div> <span class="sizz">LAB REPORTS</span> </Link>
+                              <Link class="link rounded" to="/managereports"><div class="reports"></div> <span class="sizz">MANAGE REPORTS</span> </Link>
                               <Link class="link rounded" to="/managedoctors"><div class="doctor"></div> <span class="sizz">MANAGE DOCTORS</span> </Link>
                               <Link class="link rounded" to="/managequeries"><div class="queries"></div> <span class="sizz">MANAGE QUERIES</span></Link>
                               <Link class="link rounded" to="/managedonors"><div class="donor"></div> <span class="sizz">MANAGE DONORS</span></Link>
