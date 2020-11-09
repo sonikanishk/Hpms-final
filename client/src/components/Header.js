@@ -85,11 +85,11 @@ class Header extends React.Component {
                                
                               {this.state.isLoggedIn==='yes'?
                                 <>   
-                                  <Link class="link sizzz" to="/signout" style = {{ marginRight: "15px" }}> SIGN OUT </Link>
+                                  <Link class="link sizzz" to="/signout" style = {{ marginRight: "15px" }}> LOGOUT </Link>
                                 </>
                               :
                               <>
-                                <Link class="link sizzz" to="/loginmain"> SIGN IN </Link>
+                                <Link class="link sizzz" to="/loginmain"> LOGIN </Link>
                                 <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> SIGN UP </Link>  
                               </>
                               }
@@ -142,11 +142,11 @@ class Header extends React.Component {
                                
                               {this.state.isLoggedIn==='yes'?
                                 <>   
-                                  <Link class="link sizzz" to="/signout" style = {{ marginRight: "15px" }}> SIGN OUT </Link>
+                                  <Link class="link sizzz" to="/signout" style = {{ marginRight: "15px" }}> LOGOUT </Link>
                                 </>
                               :
                               <>
-                                <Link class="link sizzz" to="/loginmain"> SIGN IN </Link>
+                                <Link class="link sizzz" to="/loginmain"> LOGIN </Link>
                                 <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> SIGN UP </Link>  
                               </>
                               }
@@ -200,11 +200,11 @@ class Header extends React.Component {
                                
                               {this.state.isLoggedIn==='yes'?
                                 <>   
-                                  <Link class="link sizzz" to="/signout" style = {{ marginRight: "15px" }}> SIGN OUT </Link>
+                                  <Link class="link sizzz" to="/signout" style = {{ marginRight: "15px" }}> LOGOUT </Link>
                                 </>
                               :
                               <>
-                                <Link class="link sizzz" to="/loginmain"> SIGN IN </Link>
+                                <Link class="link sizzz" to="/loginmain"> LOGIN </Link>
                                 <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> SIGN UP </Link>  
                               </>
                               }
@@ -221,7 +221,7 @@ class Header extends React.Component {
                               <i class="fas fa-bars"></i>
                             </label>
                             <span class="comp" style={{margin:"0px"}}>
-                              <Link class="link rounded" to="/appointment"><div class="appointment"></div> <span class="sizz">APPOINTMENTS</span> </Link>
+                              <Link class="link rounded" to="/appointment"><div class="appointment"></div> <span class="sizz">FIND A DOCTOR</span> </Link>
                               <Link class="link rounded" to="/reports"><div class="reports"></div> <span class="sizz">LAB REPORTS</span> </Link>
                               <Link class="link rounded" to="/departments"><div class="doctor"></div> <span class="sizz">DEPARTMENTS</span> </Link>
                               <Link class="link rounded" to="/queries"><div class="queries"></div> <span class="sizz">QUICK QUERIES</span></Link>

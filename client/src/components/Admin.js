@@ -79,11 +79,11 @@ class Admin extends React.Component {
                 <div class="card text-white bg-success shadow" style={{padding: "10px",marginBottom: "10px",marginTop: "20px"}}>
                   <div class="card-header" style={{textAlign: "center"}}><h1> {this.state.users.length} &nbsp; <i class="fas fa-user-friends"> </i> </h1></div>
                   <div class="card-body">
-                    <h5 class="card-title"> Registered Users </h5>
-                    <p class="card-text"> Only Registered Users can book Appointments or View Donors </p>
+                    <h5 class="card-title"> Registered Patients </h5>
+                    <p class="card-text"> Only Registered Patients can book Appointments or View Donors </p>
                   </div>
                   <div class="card-footer">
-                    <Link to="viewusers" class="btn btn-info"> View Users </Link>
+                    <Link to="viewusers" class="btn btn-info"> View Patients </Link>
                   </div>
                 </div>
               </div>
@@ -131,7 +131,7 @@ class Admin extends React.Component {
                 <div class="card-header" style={{textAlign: "center"}}><h1> {this.state.queries.length} &nbsp; <i class="far fa-question-circle"></i> </h1></div>
                   <div class="card-body">
                     <h5 class="card-title"> Queries </h5>
-                    <p class="card-text"> To view and manage User Queries </p>
+                    <p class="card-text"> To view and manage Patient Queries </p>
                   </div>
                   <div class="card-footer">
                     <Link to="managequeries" class="btn btn-info"> Manage Queries </Link>
