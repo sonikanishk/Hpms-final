@@ -88,7 +88,7 @@ render(){
                 </tr>
                 <tr class="heading">
                    <td>Attribute</td>
-                   <td>Detail</td>
+                   <td>Details</td>
                 </tr>
                 <tr class="item">
                    <td>Email:</td>
