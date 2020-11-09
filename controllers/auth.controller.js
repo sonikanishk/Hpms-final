@@ -4,6 +4,7 @@ const Doc = require('../models/doctor.model');
 const Staff = require('../models/staff.model');
 const Donor = require('../models/donor.model');
 const Appointment = require('../models/appointment.model');
+const Report = require('../models/reports.model');
 
 const expressJwt = require('express-jwt');
 const _ = require('lodash');
@@ -14,7 +15,6 @@ const { errorHandler } = require('../helpers/dbhelper');
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.MAIL_KEY);
 const mongoose = require('mongoose');
-
 
 exports.registerController = (req, res) => {
   const { name, email, password } = req.body;
@@ -386,6 +386,35 @@ exports.addDoctorController = (req, res) => {
   }
 };
 
+exports.addReportController = (req, res) => {
+  const { email, name, symptoms, number, department, insurance, gender } = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+    const colab = {email,name,symptoms,number,department,insurance,gender};
+    const doctor = new Report(colab);
+        doctor.save((err, doctor) => {
+          if (err) {
+            console.log('Save error', errorHandler(err));
+            return res.status(401).json({
+              errors: errorHandler(err)
+            });
+          } else {
+            return res.json({
+              success: true,
+              message: doctor,
+              message: 'Query Sent'
+            });
+          }
+        });
+  }
+};
+
 exports.addDonorController = (req, res) => {
   const { email, first_name,last_name , number, gender, organ ,blood_group} = req.body;
   const errors = validationResult(req);
@@ -714,6 +743,21 @@ exports.donorsController = (req, res) => {
       Donor.find({organ:organ,blood_group:bloodgrp}).then(exercises => res.json(exercises))
       .catch(err => res.status(400).json('Error: ' + err));
     } 
+  }
+};
+
+exports.reportsController = (req, res) => {
+  const { email } = req.body;
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const firstError = errors.array().map(error => error.msg)[0];
+    return res.status(422).json({
+      errors: firstError
+    });
+  } else {
+      Report.find({email:email}).then(exercises => res.json(exercises))
+      .catch(err => res.status(400).json('Error: ' + err));
   }
 };
 

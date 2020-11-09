@@ -28,6 +28,8 @@ import ManageAppointments from './components/ManageAppointments';
 import ManageQueries from './components/ManageQueries';
 import ManageStaff from './components/ManageStaff';
 import ViewUsers from './components/ViewUsers';
+import ManageReports from './components/ManageReports';
+import ViewReports from './components/ViewReports';
 
 import dotenv from 'dotenv';
 
@@ -65,7 +67,8 @@ function App() {
                         <Route path="/managedonors" exact component={ManageDonors}/>  
                         <Route path="/managestaff" exact component={ManageStaff}/>  
                         <Route path="/viewusers" exact component={ViewUsers}/>  
-                        
+                        <Route path="/managereports" exact component={ManageReports}/>  
+                        <Route path="/viewreports" exact component={ViewReports}/>  
                         
                 </Switch>
             </Router>

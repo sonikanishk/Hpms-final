@@ -152,6 +152,18 @@ class Admin extends React.Component {
                   </div>
                 </div>
               </div> 
+              <div class="col-md-4 col-sm-12">
+              <div class="card text-white bg-info shadow" style={{padding: "10px",marginBottom: "10px",marginTop: "20px"}}>
+                <div class="card-header" style={{textAlign: "center"}}><h1> Reports &nbsp; <i class="fas fa-file"></i> </h1></div>
+                  <div class="card-body">
+                    <h5 class="card-title"> Reports </h5>
+                    <p class="card-text"> To view and manage Reports </p>
+                  </div>
+                  <div class="card-footer">
+                    <Link to="managereports" class="btn btn-info"> Manage Reports </Link>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
       )

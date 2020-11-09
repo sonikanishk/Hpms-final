@@ -24,15 +24,15 @@ class Home extends React.Component {
                    <div  class="slider-image i3 rounded"></div>
                 </div>
                 <div class="button-container responsive">
-                    <a href="#slider-1" class="slider-button"> </a>
-                    <a rel="noopener noreferrer" href="#slider-2" class="slider-button"> </a>
-                    <a rel="noopener noreferrer" href="#slider-3" class="slider-button"> </a>
-
+                    <a rel="noopener noreferrer" href="#slider-1" > <span class="carousel-control-prev-icon bg rounded" aria-hidden="true"></span></a>
+                    <a rel="noopener noreferrer" href="#slider-2" > <span class="carousel-control-next-icon bg rounded" aria-hidden="true"></span></a>
+                    <a rel="noopener noreferrer" href="#slider-3" > <span class="carousel-control-next-icon bg rounded" aria-hidden="true"></span></a>
+                    
                 </div>
             </div>
-            <div>
-
-            </div>
+            
+            
+            
       </div>
     );
   }
