@@ -10,13 +10,14 @@ class ManageAppointments extends React.Component {
       axios.post(`${process.env.REACT_APP_API_URL}/cancelAppointment`,{id:id});
       toast.error('Appointment has been Canceled. Please Refresh');
   }  
-  CustomCard = ({ id,pname,email,drname,time }) => {
+  CustomCard = ({ id,pname,email,drname,time,department }) => {
     return (
       <div>
         <div class="row border box1" style={{margin:"0px",padding:"5px"}}>               
             
-            <span class="col-lg-3"> {pname} </span>
-            <span class="col-lg-3"> {drname} </span>
+            <span class="col-lg-2"> {pname} </span>
+            <span class="col-lg-2"> {drname} </span>
+            <span class="col-lg-2"> {department} </span>
             <span class="col-lg-3"> {email} </span>
             <span class="col-lg-2"> {time} </span>
             
@@ -62,8 +63,9 @@ class ManageAppointments extends React.Component {
                     </div>
                     <div class="borderr col-12" style={{paddingBottom:"15px"}}></div> 
                     <div class="top">  
-                      <div class="col-3"> Patient Name</div>
-                      <div class="col-3"> Doctor Name</div>
+                      <div class="col-2"> Patient Name</div>
+                      <div class="col-2"> Doctor Name</div>
+                      <div class="col-2"> Department </div>
                       <div class="col-3"> Patient Email</div>
                       <div class="col-2"> Time </div>
                       <div class="col-1"> Cancel </div>
@@ -79,6 +81,7 @@ class ManageAppointments extends React.Component {
                                 email={item.email}
                                 drname = {item.drname}
                                 time = {item.time}
+                                department = {item.department}
                                 />     
                             </div>
                           </div>

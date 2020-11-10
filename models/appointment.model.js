@@ -6,6 +6,11 @@ const AppointmentSchema = new mongoose.Schema(
         type: String,
         trim: true,
         required: true
+      },
+      department: {
+        type: String,
+        trim: true,
+        required: true
       }, 
       pname: {
         type: String,

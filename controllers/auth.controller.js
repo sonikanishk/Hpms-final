@@ -762,7 +762,7 @@ exports.reportsController = (req, res) => {
 };
 
 exports.addAppointmentController = (req, res) => {
-  const { drname, pname, email, time} = req.body;
+  const { drname, department, pname, email, time} = req.body;
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
@@ -771,7 +771,7 @@ exports.addAppointmentController = (req, res) => {
       errors: firstError
     });
   } else {
-    const colab = {drname,pname,email,time};
+    const colab = {drname,department,pname,email,time};
     const appoint = new Appointment(colab);
         appoint.save((err, appoint) => {
           if (err) {

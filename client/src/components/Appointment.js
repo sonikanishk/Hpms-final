@@ -20,12 +20,13 @@ class Appointment extends React.Component{
     myfn = text => (e) => {
         e.preventDefault();
         const Drname = text.name;
+        const Department = text.speciality;
         const Pname = this.state.userdetails.name;
         const Email = this.state.userdetails.email;
         const Time = Math.floor(Math.random() * 4) + 1;
         const stTime = Time+'PM';
         this.setState({time:stTime});
-        axios.post(`${process.env.REACT_APP_API_URL}/addappointment`,{drname:Drname,pname:Pname,email:Email,time:stTime}).then(res => {
+        axios.post(`${process.env.REACT_APP_API_URL}/addappointment`,{drname:Drname,department:Department,pname:Pname,email:Email,time:stTime}).then(res => {
             
             toast.success(`Appointment Booked for Tommorow ${Time}PM`);
             
@@ -79,7 +80,7 @@ class Appointment extends React.Component{
                                     
                                 </ul>
                                 <div class="card-body row">
-                                    <button onClick={this.myfn({name})} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> Book Appointment </button>
+                                    <button onClick={this.myfn({name,speciality})} type="submit" style={{textAlign:"center",flex:"auto"}}  class="tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"> Book Appointment </button>
                                 </div>
                         </div>          
          
