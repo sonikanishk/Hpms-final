@@ -84,6 +84,7 @@ class ViewUsers extends React.Component {
                                 />
                             </div>
                         )}
+                        else return null
                     })}  
             
             </div>

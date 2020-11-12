@@ -12,7 +12,7 @@ class Appointment extends React.Component{
         reportdetails: []
     }
     componentDidMount(){
-
+        if(isAuth()){
         axios.get(`${process.env.REACT_APP_API_URL}/user/${isAuth()._id}`, {
             headers: {
             Authorization: `Bearer ${this.state.token}`
@@ -40,7 +40,7 @@ class Appointment extends React.Component{
             });
             }
         });
-    
+        }
     };
 render(){ 
     return(
