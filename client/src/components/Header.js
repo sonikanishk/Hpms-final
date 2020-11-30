@@ -90,7 +90,7 @@ class Header extends React.Component {
                               :
                               <>
                                 <Link class="link sizzz" to="/loginmain"> LOGIN </Link>
-                                <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> SIGN UP </Link>  
+                                <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> REGISTER </Link>  
                               </>
                               }
 
@@ -147,7 +147,7 @@ class Header extends React.Component {
                               :
                               <>
                                 <Link class="link sizzz" to="/loginmain"> LOGIN </Link>
-                                <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> SIGN UP </Link>  
+                                <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> REGISTER </Link>  
                               </>
                               }
 
@@ -205,7 +205,7 @@ class Header extends React.Component {
                               :
                               <>
                                 <Link class="link sizzz" to="/loginmain"> LOGIN </Link>
-                                <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> SIGN UP </Link>  
+                                <Link style = {{ marginRight: "15px" }} class="link sizzz" to="/register"> REGISTER </Link>  
                               </>
                               }
 
